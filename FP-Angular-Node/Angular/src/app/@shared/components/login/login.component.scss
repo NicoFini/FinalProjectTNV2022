@@ -1,0 +1,80 @@
+$First: #fc0;
+
+.login-card {
+  width: 1200px;
+  background-color: #ffffff49;
+  opacity: .8;
+}
+
+.wrap {
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (max-width: 768px){
+
+.login-card {
+  width: 400px;
+}
+  .img {
+    height: 200px;
+  }
+}
+
+/* -----------------Class Scritta Guess the movie------------------ */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+
+
+body{
+  background: yellow;
+  font-family: Arial;
+}
+
+svg {
+    display: block;
+    font: 100px 'Montserrat';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+  stroke: #000000;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+  stroke: #222222;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+  stroke: #949493;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+  stroke: #a1a1a1;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+  stroke: #FDB731;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+  100% {stroke-dashoffset: -35%;}
+}

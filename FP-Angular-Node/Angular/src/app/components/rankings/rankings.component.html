@@ -1,0 +1,41 @@
+
+<!-- <pre *ngFor="let fav of favourites">{{fav | json}}</pre>   -->
+<div class="col-12 col-sm-9">
+  <div class="card">
+    <h5 class="card-header">Reviews</h5>
+    <div class="card-body">
+      <form>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+            
+              <th>Movie Title</th>
+              <th>Rating</th>
+              <th>Score</th>
+              <th>Comment</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fav of favourites">
+              <td>{{fav.movie_title}} 
+                <a href="#"><div class="hover-img" *ngFor = "let mov of movies">
+                  Show Image
+                   <span><img src="this.movieAPIService.getLocandina( this.mov.poster_path)"  alt="image" height="100" />      </span>
+                </div></a>
+              </td>
+              <td>{{fav.movie_rating}}</td>
+              <td>{{fav.score}}</td>
+              <td>{{fav.comment}}</td>
+              
+              <td>
+              
+                <a class="btn btn-sm btn-danger">Delete</a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

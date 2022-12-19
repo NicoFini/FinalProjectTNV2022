@@ -1,0 +1,624 @@
+$First: #fc0;
+$black: black;
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.inputDati {
+  line-height: normal;
+}
+
+.displayTimer {
+  text-align: center;
+  width: 160px;
+  height: fit-content;
+  font-size: 40px;
+}
+
+.startButton {
+  width: 160px;
+  height: fit-content;
+  font-size: 20px;
+  border-radius: 5px, 5px, 20px, 20px;
+}
+
+.divP {
+  height: 58px;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  box-shadow: 0 0 10px 2px $First;
+  border-radius: 20px;
+  line-height: 20%;
+
+  background: rgb(196, 195, 217);
+  background: linear-gradient(207deg, rgba(196, 195, 217, 1) 0%, rgba(255, 204, 0, 0.3) 100%);
+}
+
+.b:hover {
+  cursor: pointer;
+}
+
+
+.inputTitle {
+  background: rgb(196, 195, 217);
+  background: linear-gradient(207deg, rgba(196, 195, 217, 1) 0%, rgba(255, 204, 0, 0.3) 100%);
+}
+
+.inputReview {
+  background: rgb(196, 195, 217);
+  background: linear-gradient(207deg, rgba(196, 195, 217, 1) 0%, rgba(255, 204, 0, 1) 100%);
+}
+
+/* ----------------------------- */
+
+.btn-primary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  border-radius: 20px !important;
+  //font-family: 'Montserrat', sans-serif !important;
+  font-weight: lighter !important;
+  transition: 1s box-shadow !important;
+
+}
+
+/*
+.effect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  transition: 1s box-shadow;
+}*/
+
+.btn-primary:hover {
+  box-shadow: 0 5px 35px 0px rgba(0, 0, 0, .1);
+}
+
+.btn-primary:hover::before,
+.btn-primary:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 103%;
+  height: 103%;
+  background: rgb(104, 103, 100);
+  border-radius: 20px;
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+
+.btn-primary:hover:after {
+  background: $First;
+  animation: 2s counterclockwise infinite;
+}
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+
+  25% {
+    top: 0;
+    left: 5px;
+  }
+
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+
+  50% {
+    top: 5px;
+    left: 0;
+  }
+
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+
+  75% {
+    top: 0;
+    left: -5px;
+  }
+
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+
+  100% {
+    top: -5px;
+    left: 0;
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+
+  25% {
+    top: 0;
+    right: 5px;
+  }
+
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+
+  50% {
+    top: 5px;
+    right: 0;
+  }
+
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+
+  75% {
+    top: 0;
+    right: -5px;
+  }
+
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+
+  100% {
+    top: -5px;
+    right: 0;
+  }
+}
+
+/* ----------------------------- */
+
+.p {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.blockDL,
+.blockDW {
+  opacity: 90%;
+  margin-top: 2%;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  z-index: 9999;
+}
+
+.blockDL {
+  width: 70%;
+  height: 60%;
+  border-radius: 100%;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 23%, rgba(255, 204, 0, 0.3) 100%);
+  backdrop-filter: hue-rotate(120deg) invert(70%);
+}
+
+.blockDW {
+  width: 70%;
+  height: 60%;
+  border-radius: 100%;
+  backdrop-filter: hue-rotate(120deg) invert(70%);
+}
+
+.provaG {
+  width: 225px;
+  height: 400px;
+  position: absolute;
+  background-image: url(https://estelle.github.io/10/files/sprite.png);
+  animation: gangham 4s steps(23, start) infinite,
+    movearound 12s steps(69, end) infinite alternate 44ms;
+  animation-direction: normal, alternate;
+  z-index: -1 !important;
+}
+
+@keyframes gangham {
+  0% {
+    background-position: 0 0
+  }
+
+  100% {
+    background-position: -5175px 0
+  }
+}
+
+@keyframes movearound {
+  0% {
+    transform: translatex(0)
+  }
+
+  100% {
+    transform: translatex(1200px);
+  }
+}
+
+.pLose,
+.pWin {
+  font-size: 100px;
+  margin-top: 10%;
+  margin-left: 20%;
+  text-align: center;
+  color: $First;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 2px rgb(240, 104, 13);
+  width: 60%;
+  background-color: rgb(240, 104, 13);
+  z-index: 10;
+}
+
+.pLose {
+  margin-top: 15%;
+}
+
+.pWin {
+  margin-top: 10%;
+  text-shadow: 2px 0 $black, -2px 0 $black, 0 2px $black, 0 -2px $black,
+    1px 1px $black, -1px -1px $black, 1px -1px $black, -1px 1px $black;
+}
+
+.pWinS {
+  text-align: center;
+  line-height: 180%;
+  margin-top: 5%;
+  margin-left: 12.5%;
+  font-size: 30px;
+  color: $First;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 2px rgb(240, 104, 13);
+  width: 80%;
+  height: 10%;
+  background-color: black;
+  z-index: 10;
+}
+
+.bLose {
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 35%;
+  box-shadow: 2px 2px 2px $First;
+  width: 30%;
+  height: 10%;
+  color: $First;
+}
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.bWin {
+  text-align: center;
+  margin-top: 3%;
+  margin-left: 25%;
+  box-shadow: 2px 2px 2px $First;
+  width: 50%;
+  height: 35%;
+  font-size: 40px;
+  color: $First;
+}
+
+.cGold {
+  color: $First;
+}
+
+.reviewNo {
+  position: absolute;
+  width: 55%;
+  height: 33%;
+  margin-left: 22.5%;
+}
+
+.stars {
+  width: 60%;
+  height: 15%;
+  margin-left: 30%;
+  margin-top: 2%;
+  background-color: transparent;
+}
+
+.bStars {
+  width: 15%;
+  height: 40%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 1%;
+  margin-top: 5%;
+  background-image: url('/assets/images/star.png');
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 10 !important;
+}
+
+.bStars:hover {
+  background-image: url('/assets/images/star1.png');
+  width: 15%;
+  height: 45%;
+}
+
+/* -------------Ratings------------- */
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 20px;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+  z-index: 10 !important;
+}
+
+.rating>input {
+  display: none;
+}
+
+.rating>label:before {
+  margin: 20px;
+  font-size: 5em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating>.half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating>label {
+  color: rgb(0, 0, 0);
+  float: right;
+}
+
+.rating>input:checked~label,
+/* show gold star when clicked */
+.rating:not(:checked)>label:hover,
+/* hover current star */
+.rating:not(:checked)>label:hover~label {
+  color: $First;
+  cursor: pointer;
+}
+
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+/* hover current star when changing rating */
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+/* lighten current selection */
+.rating>input:checked~label:hover~label {
+  color: #FFED85;
+  cursor: pointer;
+}
+
+/* ------------Fire-------------- */
+
+$particles: 60;
+$width: 500;
+$height: 400;
+
+// Create the explosion...
+$box-shadow: (
+);
+$box-shadow2: (
+);
+
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+  random($width)-$width / 2+px random($height)-$height / 1.2+px hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2,
+  0 0 #fff
+}
+
+@mixin keyframes ($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animation-delay ($settings) {
+  -moz-animation-delay: $settings;
+  -webkit-animation-delay: $settings;
+  -o-animation-delay: $settings;
+  -ms-animation-delay: $settings;
+  animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+  -moz-animation-duration: $settings;
+  -webkit-animation-duration: $settings;
+  -o-animation-duration: $settings;
+  -ms-animation-duration: $settings;
+  animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+  -moz-animation: $settings;
+  -webkit-animation: $settings;
+  -o-animation: $settings;
+  -ms-animation: $settings;
+  animation: $settings;
+}
+
+@mixin transform ($settings) {
+  transform: $settings;
+  -moz-transform: $settings;
+  -webkit-transform: $settings;
+  -o-transform: $settings;
+  -ms-transform: $settings;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #003366;
+  overflow: hidden;
+}
+
+.pyro>.before,
+.pyro>.after {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+
+.pyro>.after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+
+@include keyframes(bang) {
+  to {
+    box-shadow: $box-shadow;
+  }
+}
+
+@include keyframes(gravity) {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+
+@include keyframes(position) {
+
+  0%,
+  19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+
+  20%,
+  39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+
+  40%,
+  59.9% {
+    margin-top: 20%;
+    margin-left: 70%
+  }
+
+  60%,
+  79.9% {
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+
+  80%,
+  99.9% {
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+
+/* ---------------You Lose Style------------------- */
+
+
+.waviy {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waviy span {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  font-size: 100px;
+  color: $First;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i));
+  text-shadow: 2px 0 $black, -2px 0 $black, 0 2px $black, 0 -2px $black,
+    1px 1px $black, -1px -1px $black, 1px -1px $black, -1px 1px $black;
+}
+
+@keyframes flip {
+
+  0%,
+  80% {
+    transform: rotateY(360deg)
+  }
+}

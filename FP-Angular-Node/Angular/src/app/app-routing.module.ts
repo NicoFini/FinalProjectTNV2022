@@ -1,0 +1,39 @@
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./@core/helpers/auth-guard";
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./@shared/components/login/login.component";
+import { MainPageComponent } from "./components/main-page/main-page.component";
+import { RegisterComponent } from "./@shared/components/register/register.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { RankingsComponent } from "./components/rankings/rankings.component";
+import { StartGameComponent } from "./start-game/start-game.component";
+
+const routes: Routes = [
+  {
+    path: "",
+    component: MainPageComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: "profile", component: ProfileComponent },
+      { path: "rankings", component: RankingsComponent },
+      { path: "start-game", component: StartGameComponent },
+      
+    ],
+  },
+  {
+    path: "login",
+    component: LoginComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
+  },
+  { path: "**", redirectTo: "" },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="blockDL" [hidden]="isVisibleLose">
+    <p class="pLose waviy">
+      <span style="--i:1">Y</span>
+      <span style="--i:2">o</span>
+      <span style="--i:3">u</span>
+      <span style="--i:3"> &nbsp; </span>
+      <span style="--i:4">L</span>
+      <span style="--i:5">o</span>
+      <span style="--i:6">s</span>
+      <span style="--i:7">e</span>
+      <span style="--i:8">!</span>
+    </p>
+    <button (click)="restart()" class="bLose btn btn-primary"> Try Again </button>
+  </div>
+  <div class="blockDW" [hidden]="isVisibleWin">
+    <div class="provaG"></div>
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+    <p class="pWin">YOU WIN!</p>
+    <p class="pWinS">
+      Do you like this movie? So rate it and save it in to your favorite!
+    </p>
+    <div class="stars">
+      <fieldset class="rating">
+        <input type="radio" id="star5" name="rating" value="5" (click)="getRatingStar(5)" />
+        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star4half" name="rating" value="4.5" (click)="getRatingStar(4.5)" />
+        <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+        <input type="radio" id="star4" name="rating" value="4" (click)="getRatingStar(4)" />
+        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star3half" name="rating" value="3.5" (click)="getRatingStar(3.5)" />
+        <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+        <input type="radio" id="star3" name="rating" value="3" (click)="getRatingStar(3)" />
+        <label class="full" for="star3" title="Meh - 3 stars"></label>
+        <input type="radio" id="star2half" name="rating" value="2.5" (click)="getRatingStar(2.5)" />
+        <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+        <input type="radio" id="star2" name="rating" value="2" (click)="getRatingStar(2)" />
+        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="star1half" name="rating" value="1.5" (click)="getRatingStar(1.5)" />
+        <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+        <input type="radio" id="star1" name="rating" value="1" (click)="getRatingStar(1)" />
+        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="starhalf" name="rating" value="0.5" (click)="getRatingStar(0.5)" />
+        <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+      </fieldset>
+    </div>
+    <div class="reviewNo" [hidden]="isVisibleTAWin">
+      <button (click)="restart()" class="bWin btn btn-primary"> Play Again </button>
+    </div>
+    <div class="reviewNo" [hidden]="!isVisibleTAWin">
+      <form #f="ngForm" (ngSubmit)="createNewRating(f)">
+        <div class="form-group">
+          <label class="label" for="comment" style="text-align: center;">Review</label>
+          <input [ngModel] name="comment" type="text" class="form-control inputReview" placeholder="Insert review"
+            required id="comment" #comment="ngModel" />
+          <div [style.visibility]="comment.invalid && (comment.dirty || comment.touched) ? 'visible' : 'hidden'"
+            class="mt-1 small text-danger">
+            *Required field (Max: 160)
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="form-control btn btn-primary rounded submit px-3 mt-2">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="inputButton d-grid gap-2 col-2">
+      <button (click)="onClick(0)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[0]">Genres</button>
+      <button (click)="onClick(1)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[1]">Original Language</button>
+      <button (click)="onClick(2)" class="b cGold btn btn-primary" type="button" [disabled]="isVisibleButton[2]">Spoken
+        Languages</button>
+      <button (click)="onClick(3)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[3]">Budget</button>
+      <button (click)="onClick(4)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[4]">Revenue</button>
+      <button (click)="onClick(5)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[5]">Status</button>
+      <button (click)="onClick(6)" class="b cGold btn btn-primary" type="button" [disabled]="isVisibleButton[6]">Release
+        Date</button>
+      <button (click)="onClick(7)" class="b cGold btn btn-primary" type="button"
+        [disabled]="isVisibleButton[7]">Runtime</button>
+    </div>
+    <div class="inputDati d-grid gap-2 col-4">
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[0]"><span *ngFor="let genre of movieSpecs?.genres">
+            {{genre.name}}
+          </span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[1]"><span>{{movieSpecs?.original_language}}</span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[2]"><span *ngFor="let spokenLanguage of movieSpecs?.spoken_languages">
+            {{spokenLanguage.name}}
+          </span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[3]"><span>{{movieSpecs?.budget}}</span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[4]"><span>{{movieSpecs?.revenue}}</span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[5]"><span>{{movieSpecs?.status}}</span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[6]"><span>{{movieSpecs?.release_date}}</span></p>
+      </div>
+      <div class="divP">
+        <p class="p" [hidden]="isVisibleParam[7]"><span>{{movieSpecs?.runtime}}</span></p>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6">
+
+      <!--rules-->
+      <h2 style="text-align: center;">The Game</h2>
+      <p style="text-align: center;">Guess The Movie is designed for experts of movies, guessing is nearly impossible;
+        Select the appropriate buttons to reveal informations about the movies, each field revealed will increase
+        the timer by 30 seconds, guess the movie's title in the shortest time possible and check your score anytime in the Favourite Section!
+      </p>
+      <h4 style="text-align: center;">RULES:</h4>
+      <ol>
+        <p style="text-align: center;">Select the start button</p>
+        <p style="text-align: center;">Choose which fields you want to see</p>
+        <p style="text-align: center;">Write your answer on the bottom left box</p>
+        <p style="text-align: center;">Press the submit button</p>
+        <p style="text-align: center;">If your title is wrong you can try again until the time has finished.</p>
+      </ol>
+      <p style="text-align: center;">GOOD LUCK (You actually need a lot to guess it)</p>
+      <!--rules-->
+
+      <!--timer1-->
+      <p class="displayTimer" style="margin-left: 38%;"><strong>{{display}}</strong></p>
+      <button class="cGold btn btn-primary" style="margin-left: 5%; margin-right: 5%;" (click)='startTimer()'
+        [disabled]="isVisibleTimer">
+        <span>Start</span>
+      </button>
+      <button class="cGold btn btn-primary" style="margin-left: 5%; margin-right: 5%;" (click)='restart()'
+        [disabled]="isvisibileRestart">
+        <span>Reset</span>
+      </button>
+      <!--timer1-->
+    </div>
+  </div>
+
+  <br>
+  <div class="c row justify-content-md-center">
+    <div id="title" class="d-grid gap-2 col-12">
+      <!--box titolo1-->
+      <form #verifyForm="ngForm" (submit)="verifyResult(verifyForm)" name="Title">
+        <label for="Title">Insert film's Title:</label><br>
+        <input [ngModel] name="Title" type="text" class="form-control inputTitle" id="Title" placeholder="Insert Title">
+        <br>
+        <input class="cGold btn btn-primary" type="submit" value="Submit" [disabled]="isVisibleSubmit">
+      </form>
+      <!--box titolo1-->
+    </div>
+  </div>
+</div>
